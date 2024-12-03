@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Library {
     private static final List<LibraryItem> AVAILABLE_ITEMS = new ArrayList<>();
-    private static final List<LibraryItem> BOROWED_ITEMS = new ArrayList<>();
+    private static final List<LibraryItem> BORROWED_ITEMS = new ArrayList<>();
 
 
     public static void addLibraryItem(LibraryItem item) {
@@ -16,9 +16,9 @@ public class Library {
 
     public static void borrowLibraryItem(LibraryItem item) {
         if (!AVAILABLE_ITEMS.contains(item)) return;
-        if (BOROWED_ITEMS.contains(item)) return;
+        if (BORROWED_ITEMS.contains(item)) return;
         AVAILABLE_ITEMS.remove(item);
-        BOROWED_ITEMS.add(item);
+        BORROWED_ITEMS.add(item);
     }
 
     public static List<LibraryItem> getAvailableItems() {
@@ -26,7 +26,7 @@ public class Library {
     }
 
     public static List<LibraryItem> getBorrowedItems() {
-        return BOROWED_ITEMS;
+        return BORROWED_ITEMS;
     }
 
     public static LibraryItem getLibraryItem(int id) {
@@ -36,7 +36,7 @@ public class Library {
             }
         }
 
-        for (LibraryItem item : BOROWED_ITEMS) {
+        for (LibraryItem item : BORROWED_ITEMS) {
             if (item.getId() == id) {
                 return item;
             }
