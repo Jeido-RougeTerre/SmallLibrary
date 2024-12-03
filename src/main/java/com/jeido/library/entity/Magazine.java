@@ -1,6 +1,6 @@
 package com.jeido.library.entity;
 
-public class Magazine extends LibraryItem {
+public final class Magazine extends LibraryItem {
     private final int issueNumber;
 
     public Magazine(String title, int publicationYear, int issueNumber) {

@@ -1,6 +1,6 @@
 package com.jeido.library.entity;
 
-public class Book extends LibraryItem {
+public final class Book extends LibraryItem {
     private final String author;
     private final String genre;
 

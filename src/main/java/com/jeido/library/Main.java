@@ -2,11 +2,8 @@ package com.jeido.library;
 
 import com.jeido.library.entity.Book;
 import com.jeido.library.entity.BorrowRecord;
-import com.jeido.library.entity.LibraryItem;
 import com.jeido.library.entity.Magazine;
 import com.jeido.library.repository.Library;
-
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,8 +14,7 @@ public class Main {
         Library.addLibraryItem(natGeo);
 
         System.out.println("List of available elements:");
-        List<LibraryItem> allItems = Library.getItems();
-        allItems.forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
+        Library.getAvailableItems().forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
 
         System.out.println("Borrowing an Element...");
         BorrowRecord borrowRecord = new BorrowRecord(1, "John Doe", "2024-12-01");
@@ -26,12 +22,9 @@ public class Main {
         System.out.println(borrowRecord);
 
         System.out.println("Borrowed elements:");
-        List<LibraryItem> borrowedItems = BorrowRecord.getBorrowedItems();
-        borrowedItems.forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
+        Library.getBorrowedItems().forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
 
         System.out.println("List of available elements:");
-        List<LibraryItem> availableItems = Library.getItems();
-        availableItems.removeAll(borrowedItems);
-        availableItems.forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
+        Library.getAvailableItems().forEach(libraryItem -> System.out.println("- " + libraryItem.getDetails()));
     }
 }

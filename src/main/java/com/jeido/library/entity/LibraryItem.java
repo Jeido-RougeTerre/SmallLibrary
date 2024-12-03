@@ -1,7 +1,7 @@
 package com.jeido.library.entity;
 
 
-public abstract class LibraryItem {
+public sealed abstract class LibraryItem permits Book, Magazine {
     private static int count = 1;
 
     private final int id;
