@@ -11,9 +11,4 @@ public record BorrowRecord(int itemId, String borrowerName, String borrowDate) {
         Library.borrowLibraryItem(Library.getLibraryItem(itemId));
 
     }
-
-    @Override
-    public String toString() {
-        return String.format("BorrowRecord[itemId=%d, borrowerName=%s, borrowDate=%s]", itemId, borrowerName, borrowDate);
-    }
 }
